@@ -1,3 +1,8 @@
+from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
+from cook.models import Cook
 
-# Register your models here.
+
+@admin.site.register(Cook)
+class CookAdmin(UserAdmin):
+    pass
