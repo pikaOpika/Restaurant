@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1 class="display-4">Welcome to My Restaurant</h1>
+    <p class="lead">Your one-stop solution for delicious dishes!</p>
+    <p>We offer a wide variety of cuisines that are sure to satisfy your taste buds. From savory appetizers to mouth-watering desserts, our menu has something for everyone. Join us for a delightful dining experience that you won't forget!</p>
+    
+    {% if user.is_authenticated %}
+        <p class="mt-4">Hello, {{ user.username }}! We're glad to have you back. Check out our new dishes and offers just for you.</p>
+    {% else %}
+        <p class="mt-4">Please <a href="{% url 'accounts:login' %}">log in</a> or <a href="{% url 'accounts:signup' %}">sign up</a> to explore our delicious offerings.</p>
+    {% endif %}
+    
+    <div class="mt-5">
+        <h3 class="mb-4">Featured Dishes</h3>
+        <p>Take a look at some of our featured dishes that are loved by our customers:</p>
+        <ul class="list-group">
+            <li class="list-group-item">Spaghetti Carbonara</li>
+            <li class="list-group-item">Margherita Pizza</li>
+            <li class="list-group-item">Caesar Salad</li>
+            <li class="list-group-item">Chocolate Lava Cake</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

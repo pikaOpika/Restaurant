@@ -8,6 +8,9 @@
 </head>
 <body>
     <div class="container">
+        {% block sidebar %}
+        {% include 'includes/sidebar.html' %}
+        {% endblock %}
         {% block content %}
         {% endblock %}
     </div>
