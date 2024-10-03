@@ -1,30 +1,39 @@
 {% extends "base.html" %}
 
 {% block title %}Cook Profile - {{ cook.username }}{% endblock %}
-
+{% block head %}
+{% load static %}
+   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card shadow-sm">
+            <div class="card shadow-lg border-0 rounded-3">
                 <div class="card-header bg-primary text-white text-center">
                     <h2>{{ cook.username }}'s Profile</h2>
                 </div>
                 <div class="card-body">
-                    <div class="text-center mb-4">
-                        <img src="https://via.placeholder.com/150" alt="Profile picture" class="rounded-circle mb-3" width="150" height="150">
-                        <p class="lead">Years of Experience: <strong>{{ cook.years_of_experience }}</strong></p>
+                    <div class="text-center mb-5">
+                        {% if cook.image %}
+                        <img src="{{ cook.image.url }}" alt="Profile picture" class="rounded-circle mb-3 shadow-sm" width="150" height="150">
+                        {% else %}
+                        <img src="{% static 'photo/image.png' %}" alt="Profile picture" class="rounded-circle mb-3 shadow-sm" width="150" height="150">
+                        {% endif %}
+                        <p class="lead text-muted">Years of Experience: <strong>{{ cook.years_of_experience }}</strong></p>
                     </div>
-                    <div class="card bg-light mb-3">
+
+                    <div class="card bg-light border-0 mb-4">
                         <div class="card-body">
-                            <h4>About {{ cook.username }}</h4>
-                            <p>This section can include more detailed information about the cook, such as specialties, awards, or a personal bio. Customize it as needed.</p>
+                            <h4 class="text-primary">About {{ cook.username }}</h4>
+                            <p class="text-muted">{{ cook.description|default:"No description available" }}</p>
                         </div>
                     </div>
-                    <h4 class="text-center">Create a New Dish</h4>
-                    <p class="text-center">Would you like to add a new dish to our restaurant menu?</p>
+
+                    <h4 class="text-center text-success">Create a New Dish</h4>
+                    <p class="text-center text-muted mb-4">Would you like to add a new dish to our restaurant menu?</p>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="#" class="btn btn-success btn-lg">Create New Dish</a>
+                        <a href="#" class="btn btn-success btn-lg shadow-sm hover-shadow">Create New Dish</a>
                     </div>
                 </div>
             </div>
