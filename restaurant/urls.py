@@ -21,5 +21,6 @@ from restaurant.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('accounts/', include('accounts.urls'))
+    path('cook/', include('cook.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
