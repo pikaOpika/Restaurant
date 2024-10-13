@@ -20,7 +20,7 @@
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'cook:profile' user.id %}">{{ user.username }}</a>
+                    <a class="nav-link" href="{% url 'cook:profile-detail' user.id %}">{{ user.username }}</a>
                 </li>
                 <form action="{% url 'accounts:logout' %}" method="post" style="display: inline;">
                     {% csrf_token %}

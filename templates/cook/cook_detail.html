@@ -12,6 +12,7 @@
             <div class="card shadow-lg border-0 rounded-3">
                 <div class="card-header bg-primary text-white text-center">
                     <h2>{{ cook.username }}'s Profile</h2>
+                    <a href="{% url 'cook:profile-update' cook.id %}" class="btn btn-outline-light btn-sm">Update</a>
                 </div>
                 <div class="card-body">
                     <div class="text-center mb-5">
@@ -29,7 +30,6 @@
                             <p class="text-muted">{{ cook.description|default:"No description available" }}</p>
                         </div>
                     </div>
-
                     <h4 class="text-center text-success">Create a New Dish</h4>
                     <p class="text-center text-muted mb-4">Would you like to add a new dish to our restaurant menu?</p>
                     <div class="d-grid gap-2 col-6 mx-auto">
